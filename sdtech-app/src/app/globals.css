@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1e3a5f;
+  --color-primary-light: #2a4f7f;
+  --color-accent: #f97316;
+  --color-accent-light: #fb923c;
+  --color-surface: #f8fafc;
+  --color-surface-dark: #f1f5f9;
+  --color-border: #e2e8f0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+  background: white;
+}
+
+/* Utility classes */
+.btn-primary {
+  @apply bg-primary text-white px-5 py-2.5 rounded-lg font-medium
+    hover:bg-primary-light transition-colors duration-200;
+}
+
+.btn-accent {
+  @apply bg-accent text-white px-5 py-2.5 rounded-lg font-medium
+    hover:bg-accent-light transition-colors duration-200;
+}
+
+.btn-outline {
+  @apply border border-border text-primary px-5 py-2.5 rounded-lg font-medium
+    hover:bg-surface transition-colors duration-200;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white px-4 py-2 rounded-lg font-medium
+    hover:bg-red-700 transition-colors duration-200;
+}
+
+.input {
+  @apply w-full px-4 py-2.5 border border-border rounded-lg
+    focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary
+    transition-colors duration-200;
+}
+
+.card {
+  @apply bg-white border border-border rounded-xl p-6 shadow-sm;
+}
