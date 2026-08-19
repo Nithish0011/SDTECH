@@ -3,7 +3,7 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 // Configure your WhatsApp number here (with country code, no + or spaces)
-const WHATSAPP_NUMBER = "919876543210"; // TODO: Change to your actual number
+const WHATSAPP_NUMBER = "91815285723"; // TODO: Change to your actual number
 
 export type ApplyState = {
   success: boolean;

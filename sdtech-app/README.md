@@ -186,12 +186,12 @@ Edit both files with the same value:
 
 - `src/app/admin/login/actions.ts` line 6:
   ```typescript
-  const ADMIN_TOKEN = "sdtech-admin-2024"; // Change this
+  const ADMIN_TOKEN = "Kumar@123"; // Change this
   ```
 
 - `src/middleware.ts` line 4:
   ```typescript
-  const ADMIN_TOKEN = "sdtech-admin-2024"; // Must match
+  const ADMIN_TOKEN = "kumar@456"; // Must match
   ```
 
 ### Site Domain (SEO)
