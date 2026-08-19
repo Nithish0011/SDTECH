@@ -3,7 +3,7 @@ import { MapPin, Building2, Clock, ArrowLeft } from "lucide-react";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { ApplyForm } from "./apply-form";
+import { ApplySection } from "./apply-section";
 
 export const dynamic = "force-dynamic";
 
@@ -50,41 +50,42 @@ export default async function JobDetailPage({
   if (!job) notFound();
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
+    <div className="max-w-3xl mx-auto px-4 py-8">
       <Link
         href="/jobs"
-        className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-primary mb-6"
+        className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-primary mb-4"
       >
         <ArrowLeft size={16} /> All Positions
       </Link>
 
-      <div className="card mb-8">
-        <h1 className="text-2xl font-bold text-primary">{job.title}</h1>
-        <div className="flex flex-wrap gap-4 mt-3 text-sm text-gray-500">
-          <span className="flex items-center gap-1">
-            <Building2 size={14} /> {job.company}
+      {/* Job Info */}
+      <div className="card">
+        <h1 className="text-xl md:text-2xl font-bold text-primary">{job.title}</h1>
+        <div className="flex flex-wrap gap-3 mt-3 text-xs text-gray-500">
+          <span className="flex items-center gap-1 bg-surface px-2 py-1 rounded">
+            <Building2 size={12} /> {job.company}
           </span>
-          <span className="flex items-center gap-1">
-            <MapPin size={14} /> {job.location}
+          <span className="flex items-center gap-1 bg-surface px-2 py-1 rounded">
+            <MapPin size={12} /> {job.location}
           </span>
-          <span className="flex items-center gap-1">
-            <Clock size={14} /> {job.job_type}
+          <span className="flex items-center gap-1 bg-surface px-2 py-1 rounded">
+            <Clock size={12} /> {job.job_type}
           </span>
         </div>
+
+        {/* Description */}
         {job.description && (
-          <p className="mt-6 text-gray-600 whitespace-pre-wrap leading-relaxed">
-            {job.description}
-          </p>
+          <div className="mt-5 pt-5 border-t border-border">
+            <h2 className="font-semibold text-sm text-primary mb-2">About This Role</h2>
+            <p className="text-sm text-gray-600 whitespace-pre-wrap leading-relaxed">
+              {job.description}
+            </p>
+          </div>
         )}
       </div>
 
-      {/* Apply Form */}
-      <div className="card">
-        <h2 className="text-xl font-semibold text-primary mb-4">
-          Apply for this position
-        </h2>
-        <ApplyForm jobId={job.id} jobTitle={job.title} />
-      </div>
+      {/* Apply Section - hidden behind button */}
+      <ApplySection jobId={job.id} jobTitle={job.title} />
     </div>
   );
 }

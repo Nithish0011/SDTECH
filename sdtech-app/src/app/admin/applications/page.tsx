@@ -26,54 +26,47 @@ export default async function AdminApplicationsPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-primary">Applications</h1>
+      <div className="flex items-center justify-between mb-4">
+        <h1 className="text-xl font-bold text-primary">Applications</h1>
         {applications.length > 0 && (
           <a
             href="/api/export-csv"
-            className="btn-outline flex items-center gap-2 text-sm"
+            className="btn-outline flex items-center gap-1 text-xs"
           >
-            <Download size={16} /> Export CSV
+            <Download size={14} /> CSV
           </a>
         )}
       </div>
 
       {applications.length === 0 ? (
         <div className="card text-center py-8">
-          <p className="text-gray-500">No applications received yet.</p>
+          <p className="text-gray-500 text-sm">No applications received yet.</p>
         </div>
       ) : (
-        <div className="card overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-border text-left">
-                <th className="pb-3 font-semibold">Name</th>
-                <th className="pb-3 font-semibold">Email</th>
-                <th className="pb-3 font-semibold">Phone</th>
-                <th className="pb-3 font-semibold">Job</th>
-                <th className="pb-3 font-semibold">Experience</th>
-                <th className="pb-3 font-semibold">Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {applications.map((app) => (
-                <tr key={app.id} className="border-b border-border last:border-0">
-                  <td className="py-3 font-medium">{app.name}</td>
-                  <td className="py-3 text-gray-600">{app.email}</td>
-                  <td className="py-3 text-gray-600">{app.phone}</td>
-                  <td className="py-3">
-                    <span className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">
-                      {app.job_title}
-                    </span>
-                  </td>
-                  <td className="py-3 text-gray-500">{app.experience || "—"}</td>
-                  <td className="py-3 text-gray-400 text-xs">
-                    {new Date(app.created_at).toLocaleDateString()}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="space-y-3">
+          {/* Mobile card layout */}
+          {applications.map((app) => (
+            <div key={app.id} className="card">
+              <div className="flex justify-between items-start">
+                <div>
+                  <p className="font-semibold text-sm">{app.name}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{app.phone}</p>
+                  <p className="text-xs text-gray-500">{app.email}</p>
+                </div>
+                <span className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded shrink-0">
+                  {app.job_title}
+                </span>
+              </div>
+              <div className="flex justify-between items-center mt-2 pt-2 border-t border-border">
+                <span className="text-xs text-gray-400">
+                  {app.experience || "No exp. listed"}
+                </span>
+                <span className="text-xs text-gray-400">
+                  {new Date(app.created_at).toLocaleDateString()}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       )}
     </div>

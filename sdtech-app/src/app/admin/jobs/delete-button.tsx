@@ -17,9 +17,9 @@ export function DeleteJobButton({ deleteAction }: { deleteAction: () => Promise<
     <button
       onClick={handleClick}
       disabled={pending}
-      className="btn-danger text-xs px-3 py-1.5 flex items-center gap-1 disabled:opacity-50"
+      className="btn-danger w-full text-xs py-2 flex items-center justify-center gap-1 disabled:opacity-50"
     >
-      <Trash2 size={14} /> {pending ? "..." : "Delete"}
+      <Trash2 size={12} /> {pending ? "..." : "Delete"}
     </button>
   );
 }

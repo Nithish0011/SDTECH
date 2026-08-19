@@ -3,47 +3,45 @@ import { LayoutDashboard, Briefcase, FileText, LogOut } from "lucide-react";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex">
-      {/* Sidebar */}
-      <aside className="w-56 bg-primary text-white flex flex-col shrink-0">
-        <div className="p-4 border-b border-white/10">
+    <div className="min-h-screen bg-surface">
+      {/* Top nav for mobile (replaces sidebar) */}
+      <nav className="bg-primary text-white sticky top-0 z-50">
+        <div className="flex items-center justify-between px-4 h-14">
           <Link href="/admin" className="font-bold text-lg">
             SD<span className="text-accent">Tech</span>
-            <span className="text-xs ml-2 opacity-60">Admin</span>
+            <span className="text-xs ml-1 opacity-60">Admin</span>
+          </Link>
+          <Link
+            href="/"
+            className="text-xs text-white/60 hover:text-white flex items-center gap-1"
+          >
+            <LogOut size={14} /> Exit
           </Link>
         </div>
-        <nav className="flex-1 p-3 space-y-1">
+        <div className="flex gap-1 px-3 pb-2 overflow-x-auto">
           <Link
             href="/admin"
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:bg-white/10 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap hover:bg-white/10 transition-colors"
           >
-            <LayoutDashboard size={16} /> Dashboard
+            <LayoutDashboard size={14} /> Dashboard
           </Link>
           <Link
             href="/admin/jobs"
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:bg-white/10 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap hover:bg-white/10 transition-colors"
           >
-            <Briefcase size={16} /> Jobs
+            <Briefcase size={14} /> Jobs
           </Link>
           <Link
             href="/admin/applications"
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:bg-white/10 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap hover:bg-white/10 transition-colors"
           >
-            <FileText size={16} /> Applications
-          </Link>
-        </nav>
-        <div className="p-3 border-t border-white/10">
-          <Link
-            href="/"
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:bg-white/10 transition-colors text-white/60"
-          >
-            <LogOut size={16} /> Exit Admin
+            <FileText size={14} /> Applications
           </Link>
         </div>
-      </aside>
+      </nav>
 
-      {/* Main content */}
-      <main className="flex-1 bg-surface p-6 overflow-auto">{children}</main>
+      {/* Content */}
+      <main className="p-4 max-w-4xl mx-auto">{children}</main>
     </div>
   );
 }

@@ -191,7 +191,7 @@ Edit both files with the same value:
 
 - `src/middleware.ts` line 4:
   ```typescript
-  const ADMIN_TOKEN = "kumar@456"; // Must match
+  const ADMIN_TOKEN = "kKumar@123"; // Must match
   ```
 
 ### Site Domain (SEO)

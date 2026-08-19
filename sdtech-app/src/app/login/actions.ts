@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 // Change this token to your own secret
-const ADMIN_TOKEN = "sdtech-admin-2024";
+const ADMIN_TOKEN = "Kumar@123";
 
 export async function loginAdmin(
   _prevState: { error: string },
@@ -24,7 +24,7 @@ export async function loginAdmin(
   const cookieStore = await cookies();
   cookieStore.set("admin_session", ADMIN_TOKEN, {
     httpOnly: true,
-    secure: true,
+    secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     maxAge: 60 * 60 * 24 * 7, // 7 days
     path: "/",

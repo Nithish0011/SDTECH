@@ -12,21 +12,21 @@ export function ApplyForm({ jobId, jobTitle }: { jobId: string; jobTitle: string
   if (state.success) {
     return (
       <div className="text-center py-6">
-        <p className="text-2xl mb-2">✅</p>
-        <h3 className="font-semibold text-lg text-green-700">
+        <p className="text-3xl mb-2">✅</p>
+        <h3 className="font-semibold text-base text-green-700">
           Application submitted!
         </h3>
-        <p className="text-gray-500 mt-1">
-          Now send your details via WhatsApp to complete the process.
+        <p className="text-sm text-gray-500 mt-1">
+          Tap below to send your details via WhatsApp.
         </p>
         {state.whatsappUrl && (
           <a
             href={state.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-accent inline-flex items-center gap-2 mt-4"
+            className="btn-accent inline-flex items-center gap-2 mt-4 text-base"
           >
-            <Send size={16} /> Continue on WhatsApp
+            <Send size={18} /> Continue on WhatsApp
           </a>
         )}
       </div>
@@ -34,7 +34,7 @@ export function ApplyForm({ jobId, jobTitle }: { jobId: string; jobTitle: string
   }
 
   return (
-    <form action={formAction} className="space-y-4">
+    <form action={formAction} className="space-y-3">
       <input type="hidden" name="jobId" value={jobId} />
       <input type="hidden" name="jobTitle" value={jobTitle} />
 
@@ -53,12 +53,13 @@ export function ApplyForm({ jobId, jobTitle }: { jobId: string; jobTitle: string
           required
           placeholder="John Doe"
           className="input"
+          autoComplete="name"
         />
       </div>
 
       <div>
         <label htmlFor="email" className="block text-sm font-medium mb-1">
-          Email Address *
+          Email *
         </label>
         <input
           type="email"
@@ -67,12 +68,13 @@ export function ApplyForm({ jobId, jobTitle }: { jobId: string; jobTitle: string
           required
           placeholder="john@example.com"
           className="input"
+          autoComplete="email"
         />
       </div>
 
       <div>
         <label htmlFor="phone" className="block text-sm font-medium mb-1">
-          Phone Number *
+          Phone *
         </label>
         <input
           type="tel"
@@ -81,12 +83,13 @@ export function ApplyForm({ jobId, jobTitle }: { jobId: string; jobTitle: string
           required
           placeholder="+91 9876543210"
           className="input"
+          autoComplete="tel"
         />
       </div>
 
       <div>
         <label htmlFor="experience" className="block text-sm font-medium mb-1">
-          Experience (years)
+          Experience
         </label>
         <input
           type="text"
@@ -100,7 +103,7 @@ export function ApplyForm({ jobId, jobTitle }: { jobId: string; jobTitle: string
       <button
         type="submit"
         disabled={pending}
-        className="btn-accent w-full disabled:opacity-50 disabled:cursor-not-allowed"
+        className="btn-accent w-full text-base py-3 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {pending ? "Submitting..." : "Apply via WhatsApp →"}
       </button>

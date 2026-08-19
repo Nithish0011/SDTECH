@@ -9,4 +9,5 @@ declare module "@opennextjs/cloudflare" {
     env: CloudflareEnv;
     ctx: ExecutionContext;
   }>;
+  export function initOpenNextCloudflareForDev(): void;
 }
