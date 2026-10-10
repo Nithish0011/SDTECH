@@ -10,4 +10,5 @@ declare module "@opennextjs/cloudflare" {
     ctx: ExecutionContext;
   }>;
   export function initOpenNextCloudflareForDev(): void;
+  export function defineCloudflareConfig(config: Record<string, unknown>): Record<string, unknown>;
 }

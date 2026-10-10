@@ -1,9 +1,7 @@
 "use server";
 
 import { getCloudflareContext } from "@opennextjs/cloudflare";
-
-// Configure your WhatsApp number here (with country code, no + or spaces)
-const WHATSAPP_NUMBER = "919160609799"; // TODO: Change to your actual number
+import { WHATSAPP_NUMBER } from "@/lib/config";
 
 export type ApplyState = {
   success: boolean;

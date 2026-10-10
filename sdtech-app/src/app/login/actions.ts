@@ -2,9 +2,7 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-
-// Change this token to your own secret
-const ADMIN_TOKEN = "Kumar@123";
+import { ADMIN_TOKEN } from "@/lib/auth";
 
 export async function loginAdmin(
   _prevState: { error: string },

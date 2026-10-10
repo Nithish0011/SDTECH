@@ -28,20 +28,20 @@ export default function HomePage() {
       <section className="relative overflow-hidden text-white">
         {/* Background image slideshow */}
         <div className="absolute inset-0 hero-slideshow">
-          <div className="absolute inset-0 hero-slide hero-slide-1" style={{ backgroundImage: `url('/images/hero1.jpg')` }} />
-          <div className="absolute inset-0 hero-slide hero-slide-2" style={{ backgroundImage: `url('/images/hero3.jpg')` }} />
+          <div className="absolute inset-0 hero-slide hero-slide-1" style={{ backgroundImage: `url('/images/hero1.jpeg')` }} />
+          <div className="absolute inset-0 hero-slide hero-slide-2" style={{ backgroundImage: `url('/images/hero3.jpeg')` }} />
           <div className="absolute inset-0 hero-slide hero-slide-3" style={{ backgroundImage: `url('/images/hero4.jpg')` }} />
         </div>
 
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f2540]/80 via-primary/70 to-primary/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a]/85 via-[#0f172a]/75 to-[#1e293b]/85" />
 
         <div className="relative max-w-5xl mx-auto px-4 py-20 md:py-32 text-center">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 mb-6">
             <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
             <span className="text-xs font-medium text-white/90">
-              Helping careers take flight since 2024
+              Helping careers take flight since 2014
             </span>
           </div>
 
@@ -175,7 +175,7 @@ export default function HomePage() {
       </section>
 
       {/* ==================== OUR CLIENTS ==================== */}
-      <section className="py-14 bg-white overflow-hidden">
+      <section className="py-14 bg-[#f8fafc] overflow-hidden">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-primary">
@@ -191,13 +191,13 @@ export default function HomePage() {
               {[...clients, ...clients].map((c, i) => (
                 <div
                   key={`${c.name}-${i}`}
-                  className="min-w-[120px] h-16 flex-shrink-0 flex items-center justify-center bg-surface rounded-lg px-4"
+                  className="min-w-[160px] h-20 flex-shrink-0 flex items-center justify-center px-6"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={c.logo}
                     alt={c.name}
-                    className="max-h-10 max-w-[100px] object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    className="max-h-14 max-w-[140px] object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
               ))}
@@ -207,7 +207,7 @@ export default function HomePage() {
       </section>
 
       {/* ==================== FINAL CTA ==================== */}
-      <section className="py-14 bg-gradient-to-br from-primary to-[#0f2540] text-white text-center">
+      {/* <section className="py-14 bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white text-center">
         <div className="max-w-lg mx-auto px-4">
           <h2 className="text-xl md:text-2xl font-bold">
             Ready to Take the Next Step?
@@ -223,7 +223,7 @@ export default function HomePage() {
             Browse Jobs <ArrowRight size={18} />
           </Link>
         </div>
-      </section>
-    </>
+      </section> */}
+    </> 
   );
 }

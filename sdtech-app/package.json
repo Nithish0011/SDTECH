@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "npm run build && wrangler pages deploy .vercel/output/static --project-name=sdtech",
+    "deploy": "npx opennextjs-cloudflare build && npx opennextjs-cloudflare deploy",
     "db:migrate": "wrangler d1 execute recruitment-db --remote --file=./migrations/0001_schema.sql",
     "db:migrate:local": "wrangler d1 execute recruitment-db --local --file=./migrations/0001_schema.sql"
   },
