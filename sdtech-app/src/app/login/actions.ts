@@ -30,9 +30,3 @@ export async function loginAdmin(
 
   redirect("/admin");
 }
-
-export async function logoutAdmin() {
-  const cookieStore = await cookies();
-  cookieStore.delete("admin_session");
-  redirect("/");
-}

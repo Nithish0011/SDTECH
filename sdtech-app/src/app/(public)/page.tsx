@@ -206,24 +206,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ==================== FINAL CTA ==================== */}
-      {/* <section className="py-14 bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white text-center">
-        <div className="max-w-lg mx-auto px-4">
-          <h2 className="text-xl md:text-2xl font-bold">
-            Ready to Take the Next Step?
-          </h2>
-          <p className="mt-3 text-sm text-white/70 leading-relaxed">
-            Whether you&apos;re looking for your first job or your next one,
-            we&apos;re here to help you find the right fit.
-          </p>
-          <Link
-            href="/jobs"
-            className="inline-flex items-center gap-2 mt-6 bg-accent hover:bg-accent-light text-white font-semibold px-6 py-3 rounded-xl active:scale-[0.97] transition-all duration-200"
-          >
-            Browse Jobs <ArrowRight size={18} />
-          </Link>
-        </div>
-      </section> */}
     </> 
   );
 }
